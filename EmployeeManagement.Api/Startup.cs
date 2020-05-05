@@ -29,6 +29,10 @@ namespace EmployeeManagement.Api
         {
             services.AddDbContext<AppDbContext>(option =>
                 option.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
+
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+
             services.AddControllers();
         }
 
